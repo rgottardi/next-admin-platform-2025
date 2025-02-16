@@ -7,10 +7,16 @@ const logger = pino({
         target: 'pino-pretty',
         options: {
           colorize: true,
-          ignore: 'pid,hostname',
+          ignore: 'pid,hostname,time',
+          messageFormat: '{msg}',
+          translateTime: false,
         },
       }
     : undefined,
+  formatters: {
+    level: (label) => ({ level: label }),
+    bindings: () => ({}),
+  },
 })
 
 export class AppError extends Error {
@@ -39,32 +45,27 @@ export class ValidationError extends AppError {
   }
 }
 
-export function logError(error: Error | AppError, context?: Record<string, unknown>) {
-  if (error instanceof AppError) {
-    logger.error({
-      err: error,
-      code: error.code,
-      statusCode: error.statusCode,
-      context: { ...error.context, ...context },
-    }, error.message)
-  } else {
-    logger.error({
-      err: error,
-      context,
-    }, error.message)
-  }
+export const logError = (error: Error, context?: Record<string, unknown>) => {
+  logger.error({ 
+    err: {
+      msg: error.message,
+      code: (error as AppError).code,
+      ...(error.stack && { stack: error.stack.split('\n')[0] }),
+    },
+    ...(context && { ctx: context }),
+  })
 }
 
-export function logInfo(message: string, context?: Record<string, unknown>) {
-  logger.info({ context }, message)
+export const logInfo = (message: string, context?: Record<string, unknown>) => {
+  logger.info({ ...(context && { ctx: context }), msg: message })
 }
 
 export function logDebug(message: string, context?: Record<string, unknown>) {
-  logger.debug({ context }, message)
+  logger.debug({ ...(context && { ctx: context }), msg: message })
 }
 
 export function logWarn(message: string, context?: Record<string, unknown>) {
-  logger.warn({ context }, message)
+  logger.warn({ ...(context && { ctx: context }), msg: message })
 }
 
 export default logger 
