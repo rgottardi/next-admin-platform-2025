@@ -10,11 +10,20 @@ const logger = pino({
           ignore: 'pid,hostname,time',
           messageFormat: '{msg}',
           translateTime: false,
+          levelFirst: true,
+          customColors: 'error:red,warn:yellow,info:cyan,debug:gray',
+          customLevels: 'error:31,warn:33,info:36,debug:90',
+          colors: {
+            message: 'white',
+            errorStack: 'red',
+            errorProps: 'red bright-white',
+            contextProps: 'gray',
+          },
         },
       }
     : undefined,
   formatters: {
-    level: (label) => ({ level: label }),
+    level: (label) => ({ level: label.toUpperCase() }),
     bindings: () => ({}),
   },
 })
