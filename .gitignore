@@ -2,6 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -34,5 +35,11 @@ yarn-error.log*
 next-env.d.ts
 
 # IDE
-.vscode/
-.idea/
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
