@@ -1,8 +1,28 @@
-# Next.js Modern Admin Platform 2025
+# Next.js Admin Managed Access Platform 2025
 
-A cutting-edge admin platform built with Next.js 14+ featuring the latest architectural patterns, performance optimizations, and security measures. This platform leverages Server Components, Partial Prerendering, Edge Runtime, and modern authentication patterns.
+A robust starter platform built with Next.js 14+ designed to streamline the development of applications with admin-managed access. This platform includes essential features such as authentication, role-based access control (RBAC), customizable dashboards, a subscription model, and centralized error handling and logging, making it an ideal foundation for future projects where user access is controlled by administrators.
 
-## 🌟 Modern Features
+## 🌟 Core Features
+
+### Authentication & Authorization
+- 🔐 PKCE Authentication Flow
+- 🎯 Fine-grained Role-Based Access Control (RBAC)
+- 🔄 Secure Login and Logout Mechanisms
+- 🛡️ Middleware-based Security
+- 🌐 CORS Configuration
+- 🚫 Admin-Managed User Access (No Self-Registration)
+
+### User Experience
+- 🏠 After-login Landing Page
+- 🧭 Role-based Navigation Options
+- 📊 Customizable Dashboards
+- 💳 Subscription Management
+
+### Error Handling & Logging
+- 🛠️ Centralized Error Handling
+- 📜 Comprehensive Logging System
+- 🔍 Real-time Error Monitoring
+- 📈 Analytics Integration for Error Trends
 
 ### Next.js 14+ Features
 - 🚀 Partial Prerendering (PPR)
@@ -10,7 +30,6 @@ A cutting-edge admin platform built with Next.js 14+ featuring the latest archit
 - 🔄 Streaming SSR
 - 🎯 Server Actions
 - 📦 Route Handlers
-- 🛡️ Middleware-based Security
 
 ### Performance
 - 🌍 Edge Runtime Deployment
@@ -19,14 +38,6 @@ A cutting-edge admin platform built with Next.js 14+ featuring the latest archit
 - ⚡ Dynamic Import Optimization
 - 🎭 Parallel Route Loading
 - 📊 Real-time Performance Monitoring
-
-### Security & Auth
-- 🔐 PKCE Authentication Flow
-- 🛡️ Content Security Policy (CSP)
-- 🔒 Advanced Rate Limiting
-- 📝 JWK Rotation
-- 🎯 Fine-grained RBAC
-- 🌐 CORS Configuration
 
 ### Development Features
 - 📝 TypeScript 5.4+
